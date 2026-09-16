@@ -1,487 +1,300 @@
-# 🛡️ GeM-BidGuard
+# GeM-BidGuard
 
-### AI-Powered Integrated Bid Compliance Verification Platform for GeM Procurement
-
-> **Smart document verification. Deterministic compliance. Evidence-based review. Human-authorized procurement decisions.**
+**AI-Powered Integrated Bid Compliance Verification Platform for GeM Procurement**
 
 ---
 
-## 📌 SIH Problem Statement
+## PS Details
 
-**PS ID:** 26100  
-**Team ID:** `<YOUR TEAM ID>`  
-**Idea ID:** `<YOUR IDEA ID>`  
-**Ministry / Organization:** Ministry of Petroleum & Natural Gas · CPCL  
-**Problem Statement:** AI-Powered Integrated Bid Compliance Verification Platform for GeM Procurement
+**PS ID :** 26100  
+**Team ID :** `<YOUR TEAM ID>`  
+**Idea ID :** `<YOUR IDEA ID>`  
+**Ministry / Organization :** Ministry of Petroleum and Natural Gas / CPCL  
 
----
+### PS Title :
 
-## 🎯 Problem Description
-
-Government procurement involves large tender documents, multiple bidders, numerous eligibility conditions, technical specifications, certificates, financial requirements and statutory documents.
-
-A Procurement Officer may need to manually examine hundreds of pages of bidder documents and verify:
-
-- Whether all mandatory documents are submitted
-- Whether certificates are valid and not expired
-- Whether financial requirements are satisfied
-- Whether technical specifications meet tender requirements
-- Whether information is consistent across multiple documents
-- Whether the bidder has statutory registrations
-- Whether submitted evidence actually supports the compliance claim
-
-This manual process can be time-consuming and may make it difficult to trace every compliance decision back to its supporting evidence.
+**AI-Powered Integrated Bid Compliance Verification Platform for GeM Procurement**
 
 ---
 
-# 💡 Our Idea — GeM-BidGuard
+## PS Description
 
-**GeM-BidGuard** is an AI-assisted procurement compliance verification platform designed to help Procurement Officers systematically verify bidder submissions against tender requirements.
+In government procurement, Procurement Officers have to verify a large number of documents submitted by different bidders against the requirements mentioned in a tender.
 
-The platform takes the officer through the complete workflow:
+This includes checking:
 
-```text
-Tender Requirements
-        ↓
-Bidder Documents
-        ↓
-Document Classification
-        ↓
-Information Extraction
-        ↓
-Data Normalization
-        ↓
-Cross-Document Validation
-        ↓
-Deterministic Compliance Rule Engine
-        ↓
-Evidence & Findings
-        ↓
-Risk Assessment
-        ↓
-Compliance Report
-        ↓
-Procurement Officer Decision
-```
+- Required documents are submitted or not
+- Certificates are valid or expired
+- Technical specifications match the tender requirements
+- Financial requirements are satisfied
+- Information is consistent across different documents
+- Supporting evidence is available for each compliance result
 
-The key principle of GeM-BidGuard is:
+Doing these checks manually can take a lot of time, especially when there are multiple bidders and large tender documents.
 
-> **AI assists the Procurement Officer, but AI does not make the final procurement decision.**
-
-Objective compliance calculations are performed using a **code-based deterministic rule engine**, while the authorized Procurement Officer retains complete decision-making authority.
+The objective of this problem is to develop a system that can assist Procurement Officers in checking bidder compliance in a faster and more structured way.
 
 ---
 
-# 🚀 What GeM-BidGuard Provides
+# Idea Title
 
-### 📋 1. Tender Requirement Management
+## GeM-BidGuard
 
-The prototype contains a structured CPCL tender:
+### Idea Description
 
-**Tender ID:** `CPCL-2026-041`
+GeM-BidGuard is an AI-assisted platform developed as an SIH prototype for bid compliance verification.
 
-It demonstrates **18 structured tender requirements** covering:
+The system takes a tender and bidder documents as input and helps the Procurement Officer go through the complete verification process.
 
-- Legal requirements
-- Financial requirements
-- Technical specifications
-- Statutory registrations
-- Tender-specific conditions
+The basic workflow is:
 
-Each requirement contains information such as:
+**Tender Requirements → Bidder Documents → Document Processing → Compliance Checks → Evidence Review → Risk Assessment → Report → Officer Decision**
 
-- Requirement ID
-- Category
-- Mandatory status
-- Required value
-- Comparison operator
-- Weight
-- Tender clause
-- Source page
-- Required document type
-- Field to be verified
+The system does not make the final procurement decision on its own. AI is used to assist with document processing, information extraction and explanation, while objective compliance checks are performed using a code-based rule engine.
+
+The final decision remains with the authorized Procurement Officer.
 
 ---
 
-### 📂 2. Bidder Document Processing
+# What We Have Implemented
 
-Procurement Officers can work with bidder documents through a dedicated document workflow.
+### 1. CPCL Tender
 
-The prototype demonstrates:
+We have created a demo CPCL tender:
 
-- Document upload
-- Filename-based classification
-- Document type correction
-- Simulated information extraction
-- Field normalization
-- Document preview
-- Reprocessing
-- Document deletion
-- Processing status
-- Extraction confidence
+**Tender ID : `CPCL-2026-041`**
+
+The tender contains **18 structured requirements** covering different types of procurement conditions.
 
 ---
 
-### 🤖 3. AI-Assisted Information Extraction
+### 2. Bidder Scenarios
 
-The system demonstrates an AI-assisted document processing workflow that converts unstructured procurement documents into structured information.
+The prototype contains **four bidder scenarios** with sample documents and different compliance situations.
+
+Each bidder has associated:
+
+- Documents
+- Extracted information
+- Evidence
+- Compliance results
+- Compliance score
+- Risk information
+
+This allows us to demonstrate different cases during the project demo.
+
+---
+
+### 3. Document Processing
+
+The system provides a document workflow where users can:
+
+- Upload documents
+- Classify documents
+- Correct document types
+- Preview documents
+- Reprocess documents
+- Delete documents
+- View extracted information
+
+The current SIH prototype uses simulated extraction data for demonstration.
+
+---
+
+### 4. Compliance Rule Engine
+
+The main compliance checking is performed using a **code-based rule engine**.
+
+The engine supports different types of checks such as:
+
+- Comparison
+- Existence
+- Date validation
+- Matching
+- Containment
 
 For example:
 
-```text
-Technical_Datasheet.pdf
-        ↓
-Document Classification
-        ↓
-Field Extraction
-        ↓
-Pressure = 8 bar
-Flow = 110 L/min
-Efficiency = 92%
-Motor Power = 12 HP
-        ↓
-Compliance Engine
-```
+If the tender requires:
 
-The extracted information can then be linked back to supporting evidence.
+**Minimum turnover = ₹10 Crore**
+
+and the bidder's extracted turnover is:
+
+**₹7 Crore**
+
+the rule engine checks the values and marks the requirement accordingly.
+
+This makes the objective compliance calculation deterministic rather than depending only on an AI response.
 
 ---
 
-# ⚙️ 4. Deterministic Compliance Rule Engine
+### 5. Missing Document & Expiry Checks
 
-One of the core components of GeM-BidGuard is its **code-based compliance engine**.
+The system can identify:
 
-The engine evaluates bidder information against predefined tender rules.
-
-Supported operators include:
-
-```text
-==
-!=
->
-<
->=
-<=
-exists
-not_exists
-date_valid
-date_expired
-matches
-contains
-```
-
-### Example
-
-Suppose the tender requires:
-
-```text
-Pressure Rating >= 10 bar
-```
-
-A bidder submits:
-
-```text
-Pressure Rating = 8 bar
-```
-
-The rule engine evaluates:
-
-```text
-8 >= 10
-```
-
-Result:
-
-```text
-❌ FAIL
-```
-
-This makes the objective compliance calculation deterministic and reproducible.
-
----
-
-# 🔍 5. Cross-Document Validation
-
-GeM-BidGuard can compare information appearing across different documents.
-
-For example:
-
-```text
-GST Certificate
-       +
-PAN
-       +
-Udyam Certificate
-       ↓
-Legal Entity Comparison
-       ↓
-PASS / REVIEW
-```
-
-This helps identify situations where bidder identity information differs between submitted documents.
-
-The prototype specifically demonstrates:
-
-- Legal entity matching
-- Contradictory information
-- Identity inconsistencies
-- Cross-document evidence
-
----
-
-# 🧾 6. Evidence-Based Compliance
-
-Every compliance result can be connected to supporting evidence.
-
-The Evidence Explorer provides a way to inspect:
-
-- Source document
-- Page number
-- Extracted field
-- Extracted value
-- Supporting text
-- Confidence
-- Tender clause
-
-Instead of simply showing:
-
-> ❌ Requirement Failed
-
-the system can show **why** the requirement failed and which evidence supports the result.
-
----
-
-# 📊 7. Bidder Compliance Matrix
-
-GeM-BidGuard provides a clickable compliance matrix allowing the Procurement Officer to compare bidders across tender requirements.
-
-Example:
-
-| Requirement | Bidder A | Bidder B | Bidder C |
-|---|---|---|---|
-| GST | ✅ | ✅ | ❌ |
-| PAN | ✅ | ✅ | ✅ |
-| Turnover | ✅ | ❌ | ✅ |
-| BIS | ✅ | ⚠️ Review | ✅ |
-| Pressure Rating | ❌ | ✅ | ✅ |
-| Warranty | ⚠️ Review | ✅ | ❌ |
-
-The officer can open individual results and inspect their evidence.
-
----
-
-# ⚠️ 8. Risk Assessment
-
-The system calculates risk using deterministic risk contributions.
-
-Possible risk factors include:
-
-- Technical failure
-- Financial failure
 - Missing mandatory documents
 - Expired certificates
-- Entity inconsistency
-- Contradictory information
-- Low extraction confidence
-- Blacklist status
+- Invalid/insufficient document information
+- Other compliance issues
 
-Risk levels are represented as:
-
-```text
-LOW
-MEDIUM
-HIGH
-```
-
-The purpose is to help the Procurement Officer identify submissions requiring closer review.
+This helps the officer quickly identify areas that require attention.
 
 ---
 
-# 🏛️ 9. Government Verification Layer
+### 6. Cross-Document Validation
 
-The prototype demonstrates adapters for:
+Information from different bidder documents can be compared.
+
+For example:
+
+**PAN + GST + Udyam**
+
+can be checked for consistency of bidder information.
+
+This helps identify contradictions or mismatched information between documents.
+
+---
+
+### 7. Bidder Compliance Matrix
+
+The application provides a compliance matrix where the Procurement Officer can compare bidder results against individual tender requirements.
+
+The officer can see which requirements are:
+
+- Passed
+- Failed
+- Require review
+
+Individual results can then be opened for further investigation.
+
+---
+
+### 8. Evidence Explorer
+
+The system provides an evidence view for compliance results.
+
+The officer can review the information supporting a particular result instead of relying only on a final PASS/FAIL status.
+
+This improves traceability of the verification process.
+
+---
+
+### 9. Risk Assessment
+
+The prototype provides risk information based on the compliance findings.
+
+Some of the factors considered include:
+
+- Failed requirements
+- Missing documents
+- Expired certificates
+- Information mismatch
+- Technical issues
+- Other verification findings
+
+---
+
+### 10. Ask BidGuard
+
+The application includes an **Ask BidGuard** assistant.
+
+It can answer questions related to the current demo dataset and help the officer understand bidder compliance information.
+
+The assistant is designed as a support feature and does not independently make the final procurement decision.
+
+---
+
+### 11. Verification Adapters
+
+The prototype includes simulated verification adapters for:
 
 - GSTN
 - Udyam
 - PAN
 - Blacklist verification
 
-### ⚠️ Prototype Disclaimer
-
-These integrations are **simulated/mock verification adapters** in the current SIH prototype.
-
-They are clearly labelled as:
-
-> **Prototype / Simulated**
-
-They are not presented as live government API integrations.
+**Note:** These are currently **mock/simulated integrations** for the SIH prototype and should not be considered live government API integrations.
 
 ---
 
-# 💬 10. Ask BidGuard
+### 12. Compliance Reports
 
-The platform includes a deterministic **Ask BidGuard** assistant.
+The application can generate compliance reports containing information such as:
 
-It can answer questions using the shared application dataset and provide explanatory information related to the current procurement scenario.
-
-For example:
-
-```text
-"What are the failed requirements for ABC Industries?"
-```
-
-The assistant uses the available structured dataset rather than independently making a procurement decision.
-
----
-
-# 📑 11. Compliance Reports
-
-The system provides a reporting workflow for the current compliance state.
-
-Reports can include:
-
-- Bidder information
+- Bidder details
 - Requirement results
 - Findings
 - Evidence
 - Risk information
-- Compliance scores
-- Verification information
+- Compliance score
 
-The prototype also demonstrates print/download workflows.
-
----
-
-# 👨‍💼 12. Human-in-the-Loop Procurement Decision
-
-This is a fundamental product boundary of GeM-BidGuard.
-
-The system can provide:
-
-- Compliance results
-- Findings
-- Evidence
-- Risk information
-- Explanations
-- Reports
-
-But the final decision remains with the authorized Procurement Officer.
-
-Possible officer decisions include:
-
-```text
-ELIGIBLE
-NOT ELIGIBLE
-REQUIRES CLARIFICATION
-MANUAL REVIEW
-```
-
-Therefore:
-
-```text
-AI / Automation
-      ↓
-Recommendation & Evidence
-      ↓
-Procurement Officer
-      ↓
-Authorized Final Decision
-```
+The prototype also provides print/download functionality.
 
 ---
 
-# 🕵️ 13. Audit Trail
+### 13. Procurement Officer Decision
 
-The prototype maintains audit events for important actions.
+After reviewing the compliance results and evidence, the authorized Procurement Officer can record the final decision.
 
-This helps demonstrate traceability of the procurement verification workflow.
+The important design principle is:
 
-The audit layer records information such as:
+> **The system assists the officer; it does not replace the officer.**
 
-- Timestamp
-- User
-- Action
-- Entity
-- Bidder
-- Document
-- Result
+Final qualification, disqualification, clarification and award decisions remain with the authorized Procurement Officer.
 
 ---
 
-# 📈 Complete Prototype Workflow
+### 14. Audit Events
+
+The application also maintains audit events for important actions performed during the verification workflow.
+
+This helps maintain a record of activities performed during the procurement review.
+
+---
+
+# How GeM-BidGuard Works
 
 ```text
-┌──────────────────────┐
-│   CPCL Tender        │
-│ CPCL-2026-041        │
-└──────────┬───────────┘
-           ↓
-┌──────────────────────┐
-│ 18 Requirements      │
-│ Legal / Financial    │
-│ Technical / Statutory│
-└──────────┬───────────┘
-           ↓
-┌──────────────────────┐
-│ Bidder Documents     │
-└──────────┬───────────┘
-           ↓
-┌──────────────────────┐
-│ Document Processing  │
-│ Classification       │
-│ Extraction           │
-│ Normalization        │
-└──────────┬───────────┘
-           ↓
-┌──────────────────────┐
-│ Cross-Document       │
-│ Validation            │
-└──────────┬───────────┘
-           ↓
-┌──────────────────────┐
-│ Compliance Rule      │
-│ Engine               │
-└──────────┬───────────┘
-           ↓
-┌──────────────────────┐
-│ PASS / FAIL / REVIEW │
-└──────────┬───────────┘
-           ↓
-┌──────────────────────┐
-│ Evidence + Findings  │
-└──────────┬───────────┘
-           ↓
-┌──────────────────────┐
-│ Risk Assessment      │
-└──────────┬───────────┘
-           ↓
-┌──────────────────────┐
-│ Compliance Report    │
-└──────────┬───────────┘
-           ↓
-┌──────────────────────┐
-│ Procurement Officer  │
-│ Final Decision       │
-└──────────────────────┘
+CPCL Tender
+     ↓
+Tender Requirements
+     ↓
+Bidder Documents
+     ↓
+Document Processing
+     ↓
+Information Extraction
+     ↓
+Compliance Rule Engine
+     ↓
+Evidence & Findings
+     ↓
+Risk Assessment
+     ↓
+Compliance Report
+     ↓
+Procurement Officer Review
+     ↓
+Final Decision
 ```
 
 ---
 
-# 🛠️ Technology Stack
+# Technology Used
 
 ### ⦿ Frontend
 
 - React 19
 - TypeScript
 - Vite
-- HTML5
-- Custom Responsive CSS
+- HTML
+- CSS
 - Lucide React
 
-### ⦿ Backend / Serverless
+### ⦿ Backend
 
 - Netlify Functions
-- REST-style `/api/state` endpoint
 
 ### ⦿ Database
 
@@ -489,7 +302,7 @@ The audit layer records information such as:
 - PostgreSQL
 - Drizzle ORM
 
-### ⦿ Development Tools
+### ⦿ Development
 
 - Node.js
 - npm
@@ -498,7 +311,7 @@ The audit layer records information such as:
 
 ---
 
-# 🏗️ Project Architecture
+# Project Structure
 
 ```text
 GeM-BidGuard/
@@ -506,63 +319,142 @@ GeM-BidGuard/
 ├── src/
 │   ├── components/
 │   ├── lib/
-│   │   ├── demo.ts
-│   │   └── engine.ts
 │   ├── App.tsx
 │   ├── main.tsx
 │   ├── styles.css
 │   └── types.ts
 │
-├── netlify/
-│   ├── functions/
-│   │   └── state.ts
-│   └── database/
-│       └── migrations/
-│
 ├── db/
-│   ├── index.ts
-│   └── schema.ts
-│
+├── netlify/
 ├── package.json
 ├── netlify.toml
 ├── vite.config.ts
-├── tsconfig.json
 └── README.md
 ```
 
 ---
 
-# 💾 Data & Persistence
+# Screenshots
 
-The application starts with deterministic demonstration data from:
+Add screenshots of the actual application here.
+
+### Landing Page
+
+```text
+![Landing Page](screenshots/landing-page.png)
+```
+
+### Dashboard
+
+```text
+![Dashboard](screenshots/dashboard.png)
+```
+
+### Bidder Compliance Matrix
+
+```text
+![Compliance Matrix](screenshots/compliance-matrix.png)
+```
+
+### Evidence Explorer
+
+```text
+![Evidence Explorer](screenshots/evidence-explorer.png)
+```
+
+### Compliance Report
+
+```text
+![Compliance Report](screenshots/compliance-report.png)
+```
+
+---
+
+# Demo
+
+The project contains a preloaded demo environment so that the complete workflow can be tested without entering real procurement data.
+
+### To start the demo:
+
+1. Open the application.
+2. Click **Continue Demo**.
+3. Select a bidder.
+4. Review the bidder documents.
+5. Check the compliance results.
+6. Open the evidence for individual requirements.
+7. Review risk and compliance information.
+8. Generate/review the compliance report.
+9. Record the Procurement Officer decision.
+
+---
+
+# How to Run
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/SuvanshSolanki/GeM-BidGuard-Procurement-Compliance.git
+```
+
+### 2. Open the Project
+
+```bash
+cd GeM-BidGuard-Procurement-Compliance
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Run the Application
+
+For the normal Vite development server:
+
+```bash
+npm run dev
+```
+
+For the Netlify Functions workflow:
+
+```bash
+npx netlify dev --port 8889
+```
+
+Open the URL shown in the terminal.
+
+Then select:
+
+**Continue Demo**
+
+---
+
+# Data and Persistence
+
+The initial demo data is available in:
 
 ```text
 src/lib/demo.ts
 ```
 
-The application maintains a shared:
+The application maintains a shared `AppState` for the current prototype state.
 
-```text
-AppState
-```
-
-Client-side interactions update this state.
-
-The state is synchronized through:
+Client-side changes are synchronized through:
 
 ```text
 /api/state
 ```
 
-The Netlify Function stores the application snapshot in the:
+The Netlify Function stores the prototype snapshot in the:
 
 ```text
 app_snapshots
 ```
 
-database table.
+table.
 
-Database schema and migrations are maintained in:
+Database schema and migrations are available in:
 
 ```text
 db/
@@ -571,187 +463,89 @@ netlify/database/migrations/
 
 ---
 
-# 🧪 Demo Scenarios
+# Future Scope
 
-The prototype includes **four consistent bidder scenarios** with associated:
+The current version is an SIH prototype. Some areas that can be developed further include:
 
-- Bidder information
-- Documents
-- Extracted fields
-- Evidence
-- Compliance results
-- Compliance scores
-- Findings
-- Risk assessments
-
-This allows the complete procurement verification workflow to be demonstrated without requiring real bidder data.
-
----
-
-# 🚀 How to Run Locally
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/SuvanshSolanki/GeM-BidGuard-Procurement-Compliance.git
-```
-
-### 2. Open the project
-
-```bash
-cd GeM-BidGuard-Procurement-Compliance
-```
-
-### 3. Install dependencies
-
-```bash
-npm install
-```
-
-### 4. Start the development server
-
-For the frontend:
-
-```bash
-npm run dev
-```
-
-If you want to run the Netlify Functions and database-backed `/api/state` workflow:
-
-```bash
-npx netlify dev --port 8889
-```
-
-Open the local URL displayed by Netlify CLI.
-
-### 5. Launch the Demo
-
-Use:
-
-> **Continue Demo**
-
-to enter the complete demonstration environment.
+- Integration with authorized GeM workflows and APIs
+- Live government verification APIs where officially permitted
+- Production-grade OCR and document extraction
+- More tender-specific rule templates
+- More advanced document comparison
+- Role-based access for different procurement users
+- Improved audit and reporting features
+- Secure deployment on suitable government infrastructure
+- Support for larger real-world tender datasets
 
 ---
 
-# 🔐 Important Product Boundary
+# Important Note
 
-GeM-BidGuard is an **AI-assisted decision-support prototype**.
+GeM-BidGuard is an **SIH prototype** created to demonstrate an AI-assisted bid compliance verification workflow.
 
-AI-generated output is advisory and explanatory.
+The tender, bidder documents and verification data used in the prototype are demonstration data.
 
-Objective compliance calculations are performed by the **code-based deterministic rule engine**.
+GSTN, PAN, Udyam and blacklist verification adapters are simulated in the current prototype.
 
-The system does **not** autonomously make the final procurement decision.
-
-### Final authority remains with:
-
-> **The Authorized Procurement Officer**
-
-This ensures that automation supports procurement professionals while maintaining human accountability and authorization.
+The project does not represent an official GeM or CPCL production system.
 
 ---
 
-# 🌟 Key Innovation
+# Project Team
 
-GeM-BidGuard brings multiple verification activities into a single procurement workflow:
-
-```text
-Document Processing
-        +
-Requirement Extraction
-        +
-Rule-Based Compliance
-        +
-Cross-Document Validation
-        +
-Evidence Traceability
-        +
-Technical Verification
-        +
-Risk Assessment
-        +
-Government Verification
-        +
-Audit Trail
-        +
-Human Decision
-```
-
-Instead of providing only an AI-generated answer, the platform focuses on **traceable, evidence-linked and deterministic compliance verification**.
-
----
-
-# 🎥 Project Resources
-
-### ⭐ Live Demo
-
-**Coming Soon / Add Deployment URL**
-
-`<ADD YOUR NETLIFY DEPLOYMENT LINK>`
-
-### ⭐ Project Presentation
-
-`<ADD PPT LINK>`
-
-### ⭐ Project Demonstration Video
-
-`<ADD VIDEO LINK>`
-
-### ⭐ Project Report
-
-`<ADD PROJECT REPORT LINK>`
-
-### ⭐ GitHub Repository
-
-[GeM-BidGuard — Procurement Compliance](https://github.com/SuvanshSolanki/GeM-BidGuard-Procurement-Compliance)
-
----
-
-# 👨‍💻 Team
-
-### GeM-BidGuard — SIH 2026
+## Team `<TEAM NAME>`
 
 **Team Leader:**  
 Suvansh Solanki
 
-**Team Members:**  
-- `<TEAM MEMBER 1>`
-- `<TEAM MEMBER 2>`
-- `<TEAM MEMBER 3>`
-- `<TEAM MEMBER 4>`
-- `<TEAM MEMBER 5>`
-- `<TEAM MEMBER 6>`
+**Team Members:**
+
+- `<Member 1>`
+- `<Member 2>`
+- `<Member 3>`
+- `<Member 4>`
+- `<Member 5>`
+- `<Member 6>`
 
 **Team Mentor:**  
-`<MENTOR NAME>`
+`<Mentor Name>`
 
 ---
 
-# 🤝 Contributing
+# Important URLs
 
-This project was developed as a **Smart India Hackathon prototype**.
+⭐ **GitHub Repository**
 
-Suggestions, improvements, issues and pull requests are welcome.
+https://github.com/SuvanshSolanki/GeM-BidGuard-Procurement-Compliance
 
-If you find the project useful, consider giving the repository a ⭐.
+⭐ **Live Demo**
+
+`<Add Netlify URL>`
+
+⭐ **Project PPT**
+
+`<Add PPT Link>`
+
+⭐ **Project Video**
+
+`<Add Video Link>`
+
+⭐ **Project Report**
+
+`<Add Report Link>`
 
 ---
 
-# 📜 Disclaimer
+# Support
 
-GeM-BidGuard is an SIH prototype created for demonstrating an AI-assisted procurement compliance workflow.
+If you find this project useful, please give the repository a ⭐.
 
-The bidder information, tender data, verification responses and government verification adapters used in the prototype are demonstration/simulated data unless explicitly stated otherwise.
-
-The prototype does not represent an official GeM, CPCL or Government of India production system.
+Feedback and suggestions are welcome.
 
 ---
 
-# ❤️ Built for Smarter Procurement
+## GeM-BidGuard
 
-**GeM-BidGuard**
-
-> *Verify faster. Trace every finding. Keep humans in control.*
+**AI-assisted compliance verification for smarter and more transparent procurement.**
 
 🙏 **Thank You**
